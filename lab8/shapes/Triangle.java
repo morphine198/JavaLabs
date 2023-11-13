@@ -1,6 +1,6 @@
 package edu.lab8.shapes;
 
-class Triangle extends Shape {
+public class Triangle extends Shape {
     private int[] positionA = new int[2];
     private int[] positionC = new int[2];
     private int[] positionB = new int[2];

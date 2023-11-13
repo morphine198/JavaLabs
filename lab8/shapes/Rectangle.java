@@ -1,6 +1,6 @@
 package edu.lab8.shapes;
 
-class Rectangle extends Shape {
+public class Rectangle extends Shape {
     private int width;
     private int height;
     public Rectangle(String colour, int x, int y, int width, int height) {

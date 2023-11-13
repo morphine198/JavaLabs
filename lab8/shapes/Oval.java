@@ -1,6 +1,6 @@
 package edu.lab8.shapes;
 
-class Oval extends Shape {
+public class Oval extends Shape {
     private int width;
     private int height;
     public Oval(String colour, int x, int y, int width, int height) {
