@@ -1,8 +1,6 @@
 package edu.lab8.gui;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-
+import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -24,22 +22,38 @@ public class ShapesDrawing {
         panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
-                super.paintComponent(g); //ALWAYS call this method first!
-                for (int i = 0; i < 3; i++) {
+                super.paintComponent(g);
+                for (int i = 0; i < 20; i++) {
                     int randomShape = (int)(Math.random() * 3);
-                    int randomX = (int)(Math.random() * 500);
-                    int randomY = (int)(Math.random() * 500);
-                    switch (randomShape) {
+                    int randomColor = (int)(Math.random() * 3);
+                    int[] randomX = new int[3];
+                    int[] randomY = new int[3];
+                    randomX[0] = (int)(Math.random() * 500);
+                    randomY[0] = (int)(Math.random() * 500);
+                    switch (randomColor) {
                         case 0:
-                            g.drawRect(randomX, randomY, 50, 50); //Draws square
+                            g.setColor(Color.RED);
                             break;
                         case 1:
-                            g.drawRect(randomX, randomY, 100, 50); //Draws rectangle
+                            g.setColor(Color.GREEN);
                             break;
                         case 2:
-                            g.drawPolygon(new int[] {35, 10, 60}, new int[] {150, 200, 200}, 3); //Draws triangle
+                            g.setColor(Color.BLUE);
                             break;
-                        default:
+                    }
+                    switch (randomShape) {
+                        case 0:
+                            g.fillRect(randomX[0], randomY[0], 50, 50);
+                            break;
+                        case 1:
+                            for (int points = 1; points < 3; points++) {
+                                randomX[points] = (int)(Math.random() * 500);
+                                randomY[points] = (int)(Math.random() * 500);
+                            }
+                            g.fillPolygon(randomX, randomY, 3);
+                            break;
+                        case 2:
+                            g.fillOval(randomX[0], randomY[0], 50, 50);
                             break;
                     }
                 }
