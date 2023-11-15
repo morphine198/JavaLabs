@@ -20,4 +20,7 @@ public class Oval extends Shape {
     public int getHeight() {
         return height;
     }
+    public String returnType() {
+        return "OVAL";
+    }
 }

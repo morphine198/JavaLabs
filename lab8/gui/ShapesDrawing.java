@@ -1,5 +1,10 @@
 package edu.lab8.gui;
 
+import edu.lab8.shapes.Shape;
+import edu.lab8.shapes.Rectangle;
+import edu.lab8.shapes.Triangle;
+import edu.lab8.shapes.Oval;
+
 import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,36 +29,32 @@ public class ShapesDrawing {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 for (int i = 0; i < 20; i++) {
-                    int randomShape = (int)(Math.random() * 3);
-                    int randomColor = (int)(Math.random() * 3);
-                    int[] randomX = new int[3];
-                    int[] randomY = new int[3];
-                    randomX[0] = (int)(Math.random() * 500);
-                    randomY[0] = (int)(Math.random() * 500);
-                    switch (randomColor) {
-                        case 0:
+                    Shape shape = Randomizer.randShape();
+                    switch (shape.getColour()) {
+                        case "RED":
                             g.setColor(Color.RED);
                             break;
-                        case 1:
+                        case "GREEN":
                             g.setColor(Color.GREEN);
                             break;
-                        case 2:
+                        case "BLUE":
                             g.setColor(Color.BLUE);
                             break;
+                        case "NULL":
+                            break;
                     }
-                    switch (randomShape) {
-                        case 0:
-                            g.fillRect(randomX[0], randomY[0], 50, 50);
+                    switch (shape.returnType()) {
+                        case "RECTANGLE":
+                            Rectangle rectangle = (Rectangle) shape;
+                            g.fillRect(shape.getPositionX(), shape.getPositionY(), rectangle.getWidth(), rectangle.getHeight());
                             break;
-                        case 1:
-                            for (int points = 1; points < 3; points++) {
-                                randomX[points] = (int)(Math.random() * 500);
-                                randomY[points] = (int)(Math.random() * 500);
-                            }
-                            g.fillPolygon(randomX, randomY, 3);
+                        case "TRIANGLE":
+                            Triangle triangle = (Triangle) shape;
+                            g.fillPolygon(triangle.getArrPositionX(), triangle.getArrPositionY(), 3);
                             break;
-                        case 2:
-                            g.fillOval(randomX[0], randomY[0], 50, 50);
+                        case "OVAL":
+                            Oval oval = (Oval) shape;
+                            g.fillOval(shape.getPositionX(), shape.getPositionY(), oval.getWidth(), oval.getHeight());
                             break;
                     }
                 }

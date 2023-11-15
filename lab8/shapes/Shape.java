@@ -23,4 +23,5 @@ public abstract class Shape {
     public int getPositionY() {
         return position[1];
     }
+    public abstract String returnType();
 }

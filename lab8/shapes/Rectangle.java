@@ -20,4 +20,7 @@ public class Rectangle extends Shape {
     public int getHeight() {
         return height;
     }
+    public String returnType() {
+        return "RECTANGLE";
+    }
 }

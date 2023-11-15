@@ -3,24 +3,24 @@ package edu.lab8.gui;
 import edu.lab8.shapes.*;
 
 public class Randomizer {
-    private int randSize() {
-        return (int)(Math.random() * 100);
+    private static int randSize() {
+        return (int)(Math.random() * 600);
     }
-    private int[] randomizeCoordinatesX() {
+    private static int[] randomizeCoordinatesX() {
         int[] arrayX = new int[4];
         for (int points = 0; points < arrayX.length; points++) {
             arrayX[points] = randSize();
         }
         return arrayX;
     }
-    private int[] randomizeCoordinatesY() {
+    private static int[] randomizeCoordinatesY() {
         int[] arrayY = new int[4];
         for (int points = 0; points < arrayY.length; points++) {
             arrayY[points] = randSize();
         }
         return arrayY;
     }
-    private String randColour() {
+    private static String randColour() {
         String colour = "NULL";
         switch ((int)(Math.random() * 3)){
             case 0:
@@ -35,7 +35,7 @@ public class Randomizer {
         }
         return colour;
     }
-    public Shape randShape() {
+    public static Shape randShape() {
         Shape shape = null;
         String colour = randColour();
         int[] x = new int[4];
@@ -49,13 +49,13 @@ public class Randomizer {
                 shape = new Rectangle(colour, x[0], y[0], randSize(), randSize());
                 break;
             case 1:
-                int[] pA = new int[2];
-                int[] pB = new int[2];
-                int[] pC = new int[2];
-                pA[0] = x[1]; pA[1] = y[1];
-                pB[0] = x[2]; pB[1] = y[2];
-                pC[0] = x[3]; pC[1] = y[3];
-                shape = new Triangle(colour, x[0], y[0], pA, pB, pC);
+                int[] X = new int[3];
+                int[] Y = new int[3];
+                for (int r = 1; r < x.length; r++) {
+                    X[r-1] = x[r];
+                    Y[r-1] = y[r];
+                }
+                shape = new Triangle(colour, x[0], y[0], X, Y);
                 break;
             case 2:
                 shape = new Oval(colour, x[0], y[0], randSize(), randSize());
