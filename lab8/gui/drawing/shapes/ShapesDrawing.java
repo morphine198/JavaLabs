@@ -1,5 +1,6 @@
-package edu.lab8.gui;
+package edu.lab8.gui.drawing.shapes;
 
+import edu.lab8.gui.Randomizer;
 import edu.lab8.shapes.Shape;
 import edu.lab8.shapes.Rectangle;
 import edu.lab8.shapes.Triangle;
