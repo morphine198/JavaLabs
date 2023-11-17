@@ -35,7 +35,7 @@ public class ImageDrawing {
                 } else {
                     g.drawString("Image not found.", 0, 10);
                 }
-                
+
                 g.dispose();
             }
 

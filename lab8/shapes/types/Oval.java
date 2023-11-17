@@ -1,4 +1,6 @@
-package edu.lab8.shapes;
+package edu.lab8.shapes.types;
+
+import edu.lab8.shapes.Shape;
 
 public class Oval extends Shape {
     private int width;

@@ -1,6 +1,9 @@
 package edu.lab8.gui;
 
 import edu.lab8.shapes.*;
+import edu.lab8.shapes.types.Oval;
+import edu.lab8.shapes.types.Rectangle;
+import edu.lab8.shapes.types.Triangle;
 
 public class Randomizer {
     private static int randSize() {

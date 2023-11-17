@@ -2,9 +2,9 @@ package edu.lab8.gui.drawing.shapes;
 
 import edu.lab8.gui.Randomizer;
 import edu.lab8.shapes.Shape;
-import edu.lab8.shapes.Rectangle;
-import edu.lab8.shapes.Triangle;
-import edu.lab8.shapes.Oval;
+import edu.lab8.shapes.types.Rectangle;
+import edu.lab8.shapes.types.Triangle;
+import edu.lab8.shapes.types.Oval;
 
 import java.awt.*;
 import javax.swing.JFrame;

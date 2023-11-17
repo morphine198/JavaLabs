@@ -1,4 +1,6 @@
-package edu.lab8.shapes;
+package edu.lab8.shapes.types;
+
+import edu.lab8.shapes.Shape;
 
 public class Triangle extends Shape {
     private int[] positionX = new int[3];
