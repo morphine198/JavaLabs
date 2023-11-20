@@ -1,5 +1,5 @@
 # JavaLabs
-| Labs  | Checked? |  | Labs | Checked? | 
+| Lab  | Checked? |  | Lab | Checked? | 
 | ------- | -------- | ------- | -------- | -------- |
 | 1  | Y |  | 13 |   |
 | 2  | Y |  | 14 |   |
