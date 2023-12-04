@@ -3,7 +3,7 @@ package edu.lab13;
 public class TesterFiles {
     public static void main(String[] args) {
 
-        String name = "some useless text";
+        String name = "TestFile.txt";
 
         Files task = new Files();
         System.out.println("1: Реализовать запись в файл введённой с клавиатуры информации");

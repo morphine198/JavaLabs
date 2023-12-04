@@ -49,34 +49,41 @@ public class DrunkardGame {
         System.out.println();
     }
 
-    public static void start() {
+    public static void start(String cards1, String cards2, boolean autoFill) {
         Stack<Integer> cards = new Stack<>();
         Stack<Integer> player1Cards = new Stack<>();
         Stack<Integer> player2Cards = new Stack<>();
         int pl1C;
         int pl2C;
 
-        shuffle(cards);
-        distribute(cards, player1Cards, player2Cards);
+        if (autoFill) {
+            shuffle(cards);
+            distribute(cards, player1Cards, player2Cards);
+        } else {
+            for (int s = 0; s < 5; s++) {
+                player1Cards.add((int)cards1.charAt(s)-48);
+                player2Cards.add((int)cards2.charAt(s)-48);
+            }
+        }
 
         System.out.print("Player 1 cards: ");
         printCards(player1Cards);
         System.out.print("Player 2 cards: ");
         printCards(player2Cards);
 
-        for (int step = 1; step <= 106; step++) {
-            if (!player1Cards.isEmpty()) {
-                pl1C = player1Cards.pop();
-            } else {
+        for (int step = 0; step <= 106; step++) {
+
+            if (player1Cards.isEmpty()) {
                 System.out.println("second "+step);
                 return;
-            }
-            if (!player2Cards.isEmpty()) {
-                pl2C = player2Cards.pop();
-            } else {
+            } else if (player2Cards.isEmpty()) {
                 System.out.println("first "+step);
                 return;
             }
+
+            pl1C = player1Cards.peek();
+            pl2C = player2Cards.peek();
+
             if (pl1C < pl2C) {
                 if (player1Cards.isEmpty()) {
                     player1Cards.add(pl1C);
@@ -84,6 +91,7 @@ public class DrunkardGame {
                 } else {
                     addCards(player1Cards, pl1C,pl2C);
                 }
+                player2Cards.pop();
             } else {
                 if (player2Cards.isEmpty()) {
                     player2Cards.add(pl2C);
@@ -91,7 +99,9 @@ public class DrunkardGame {
                 } else {
                     addCards(player2Cards, pl2C,pl1C);
                 }
+                player1Cards.pop();
             }
+
         }
         System.out.println("botva...");
     }
