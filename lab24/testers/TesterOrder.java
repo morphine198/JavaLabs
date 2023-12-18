@@ -1,4 +1,9 @@
-package edu.lab24;
+package edu.lab24.testers;
+
+import edu.lab24.interfaces.Item;
+import edu.lab24.MenuItem;
+import edu.lab24.interfaces.Order;
+import edu.lab24.RestaurantOrder;
 
 public class TesterOrder { //test1
     public static void main(String[] args) {

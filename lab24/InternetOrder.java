@@ -1,25 +1,16 @@
 package edu.lab24;
 
+import edu.lab24.interfaces.Item;
+import edu.lab24.interfaces.Order;
+
 import java.util.Arrays;
 
-public interface Order {
-    boolean addItem(Item item);
-    boolean removeItem(String itemName);
-    int removeAll(String itemName);
-    int getTotalCount();
-    Item[] getItems();
-    double getTotalPrice();
-    int getCount(String itemName);
-    String[] getOrderedItems();
-    Item[] getSortedItems();
-}
-
-class RestaurantOrder implements Order {
+public class InternetOrder implements Order {
     private Item[] items;
     private int size;
     private final int MAX_SIZE = 100;
 
-    public RestaurantOrder() {
+    public InternetOrder() {
         items = new Item[MAX_SIZE];
         size = 0;
     }
@@ -110,36 +101,5 @@ class RestaurantOrder implements Order {
         Item[] sortedItems = Arrays.copyOf(items, size);
         Arrays.sort(sortedItems, (item1, item2) -> Double.compare(item2.getPrice(), item1.getPrice()));
         return sortedItems;
-    }
-}
-
-interface Item {
-    String getName();
-    double getPrice();
-}
-
-class MenuItem implements Item {
-    private String name;
-    private double price;
-
-    public MenuItem(String name, double price) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null or empty");
-        }
-        if (price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
-        }
-        this.name = name;
-        this.price = price;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
     }
 }

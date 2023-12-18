@@ -1,4 +1,8 @@
-package edu.lab24;
+package edu.lab24.testers;
+
+import edu.lab24.*;
+import edu.lab24.interfaces.Item;
+import edu.lab24.interfaces.Order;
 
 public class TesterOrderManager { //test2
     public static void main(String[] args) {

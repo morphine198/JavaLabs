@@ -1,5 +1,8 @@
 package edu.lab24;
 
+import edu.lab24.interfaces.Item;
+import edu.lab24.interfaces.Order;
+
 import java.util.HashMap;
 import java.util.Map;
 

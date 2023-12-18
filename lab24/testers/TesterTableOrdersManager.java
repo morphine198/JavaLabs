@@ -1,4 +1,8 @@
-package edu.lab24;
+package edu.lab24.testers;
+
+import edu.lab24.*;
+import edu.lab24.interfaces.Item;
+import edu.lab24.interfaces.Order;
 
 public class TesterTableOrdersManager {
     public static void main(String[] args) {
@@ -9,8 +13,8 @@ public class TesterTableOrdersManager {
         tableOrdersManager.addOrderToTable("1", orderForTable11);
 
 
-        Order orderForTable12 = new RestaurantOrder();
-        orderForTable12.addItem(new MenuItem("Dish1.2", 10.0));
+        Order orderForTable12 = new InternetOrder();
+        orderForTable12.addItem(new MenuItem("Dish1.2", 12.0));
         tableOrdersManager.addOrderToTable("1", orderForTable12);
 
 
